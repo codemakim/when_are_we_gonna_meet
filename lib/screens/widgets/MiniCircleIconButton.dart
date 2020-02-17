@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 ///
@@ -28,18 +27,16 @@ import 'package:flutter/material.dart';
 /// * 탭을 할 경우 실행할 함수를 지정합니다. ex)  () {}
 ///
 class MiniCircleIconButton extends StatelessWidget {
-
   final Color color;
   final double size;
   final Icon icon;
   final Function onTap;
 
-  MiniCircleIconButton({
-    @required this.color,
-    @required this.size,
-    @required this.icon,
-    @required this.onTap
-  });
+  MiniCircleIconButton(
+      {@required this.color,
+      @required this.size,
+      @required this.icon,
+      @required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +46,7 @@ class MiniCircleIconButton extends StatelessWidget {
         child: InkWell(
           onTap: this.onTap,
           splashColor: Colors.grey,
-          child: SizedBox(
+          child: Container(
             width: this.size,
             height: this.size,
             child: this.icon,
@@ -58,5 +55,4 @@ class MiniCircleIconButton extends StatelessWidget {
       ),
     );
   }
-
 }
