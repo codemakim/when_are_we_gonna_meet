@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:when_are_we_gonna_meet/screens/MainPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/LoginPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: LoginPage(),
     );
   }
 }
