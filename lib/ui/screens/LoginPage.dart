@@ -15,9 +15,7 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          /**
-           * 상단 로고 컨테이너
-           */
+          /// 상단 로고 컨테이너
           Container(
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.symmetric(vertical: 150, horizontal: 50),
@@ -29,29 +27,23 @@ class LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          /**
-           * 로그인 안내 문구 컨테이너
-           */
+
+          /// 로그인 안내 문구 컨테이너
           Container(
             padding: EdgeInsets.symmetric(vertical: 30),
             child: Text(
-              '다음을 이용해 로그인',
-              style: TextStyle(
-                fontSize: 20
-              ),
+              '다음 플랫폼을 이용해 로그인',
+              style: TextStyle(fontSize: 20),
             ),
           ),
-          /**
-           * 소셜 로그인 버튼 컨테이너
-           */
+
+          /// 소셜 로그인 버튼 컨테이너
           Container(
             padding: EdgeInsets.symmetric(horizontal: 40),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                /**
-                 * 구글 로그인 버튼
-                 */
+                /// 구글 로그인 버튼
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: MiniCircleIconButton(
@@ -62,15 +54,16 @@ class LoginPageState extends State<LoginPage> {
                     ),
                     color: Colors.red,
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => MainPage(),
-                      ));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MainPage(),
+                          ));
                     },
                   ),
                 ),
-                /**
-                 * 페이스북 로그인 버튼
-                 */
+
+                /// 페이스북 로그인 버튼
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: MiniCircleIconButton(
@@ -81,9 +74,11 @@ class LoginPageState extends State<LoginPage> {
                     ),
                     color: Colors.indigo,
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => MainPage(),
-                      ));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MainPage(),
+                          ));
                     },
                   ),
                 ),
@@ -94,5 +89,4 @@ class LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 }
