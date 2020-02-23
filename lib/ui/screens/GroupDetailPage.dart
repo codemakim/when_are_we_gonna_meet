@@ -32,7 +32,7 @@ class GroupDetailPage extends StatelessWidget {
           /// 해당 그룹에 참가한 인원 목록을 표시하기 위한 위넷입니다.
           Container(
             margin: EdgeInsets.all(8.0),
-            height: MediaQuery.of(context).size.height * 0.38,
+            height: MediaQuery.of(context).size.height * 0.33,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[

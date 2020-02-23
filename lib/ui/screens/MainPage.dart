@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/GroupDetailPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/AddGroupPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/FriendListPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/GroupDetailPage2.dart';
 
 class MainPage extends StatelessWidget {
   final int flag = 2;
@@ -13,6 +15,30 @@ class MainPage extends StatelessWidget {
           '언제 만나?',
           style: TextStyle(color: ThemeInfo().getThemeTextColor()),
         ),
+        actions: <Widget>[
+          IconButton(
+            tooltip: '그룹 추가 화면으로 이동',
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddGroupPage(),
+                  ));
+            },
+            icon: Icon(
+              Icons.add,
+            ),
+          ),
+          IconButton(
+            tooltip: '친구 목록 화면으로 이동',
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => FriendListPage(),
+              ));
+            },
+            icon: Icon(Icons.list),
+          ),
+        ],
       ),
       body: flag == 0 ? emptyGroup(context) : haveGroup(context),
     );
@@ -69,7 +95,7 @@ Widget haveGroup(BuildContext context) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => GroupDetailPage(),
+                builder: (context) => GroupDetailPage2(),
               ));
           print('Pressed Item of ListView 0');
         },
