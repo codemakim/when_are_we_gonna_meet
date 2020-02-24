@@ -11,7 +11,8 @@ class AddGroupPage extends StatefulWidget {
   _AddGroupPageState createState() => _AddGroupPageState();
 }
 
-class _AddGroupPageState extends State<AddGroupPage> {
+class _AddGroupPageState extends State<AddGroupPage>
+    with SingleTickerProviderStateMixin {
   final Key _addGroupFormKey = GlobalKey<FormState>();
   final _groupNameTextController = TextEditingController();
   final _searchUserTextController = TextEditingController();
@@ -45,45 +46,60 @@ class _AddGroupPageState extends State<AddGroupPage> {
                 controller: _groupNameTextController,
               ),
 
-              /// 참여자 검색
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0, bottom: 10.0),
+                child: Text(
+                  '참여자 추가',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Flexible(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: '참여자 검색',
+                  Expanded(
+                    child: FlatButton(
+                      padding: EdgeInsets.all(8.0),
+                      color: ThemeInfo().getThemeColor(),
+                      textColor: ThemeInfo().getThemeTextColor(),
+                      child: Text(
+                        '검색으로',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
                       ),
-                      controller: _searchUserTextController,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return showSearchUserDialog(
+                                context, _searchUserTextController.text);
+                          },
+                        );
+                      },
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return showSearchUserDialog(
-                              context, _searchUserTextController.text);
-                        },
-                      );
-                    },
-                    icon: Icon(Icons.search),
+                  Expanded(
+                    child: FlatButton(
+                      padding: EdgeInsets.all(8.0),
+                      color: ThemeInfo().getThemeColor(),
+                      textColor: ThemeInfo().getThemeTextColor(),
+                      child: Text(
+                        '친구목록에서',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return showAddFriendDialog(context);
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ],
-              ),
-
-              FlatButton(
-                color: ThemeInfo().getThemeColor(),
-                textColor: ThemeInfo().getThemeTextColor(),
-                child: Text(
-                  '추가하기',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                onPressed: () {
-                  // TODO 그룹 추가 버튼 동작 작성
-                  print('Pressed Button!');
-                },
               ),
             ],
           ),
@@ -93,72 +109,202 @@ class _AddGroupPageState extends State<AddGroupPage> {
   }
 }
 
-/// 친구 검색 및 추가를 위한 팝업창 위젯입니다.
+/// 사용자를 검색하여 참여자 목록에 추가하기 위한 팝업창 위젯입니다.
 /// parameter [String]
 /// return [Widget]
 Widget showSearchUserDialog(BuildContext context, String text) {
-  return text.trim().length <= 0
-      ? AlertDialog(
-          content: Text(
-            '검색하고자 하는 사용자의 \n이름을 입력해주세요.',
-            textAlign: TextAlign.center,
-          ),
-        )
-      : AlertDialog(
-          content: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width * 0.7,
-            //padding: EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.all(5.0),
-                    children: <Widget>[
-                      Card(
-                        child: Text('검색 결과 1'),
-                      ),
-                    ],
+  return AlertDialog(
+    content: Container(
+      height: MediaQuery.of(context).size.height * 0.6,
+      width: MediaQuery.of(context).size.width * 0.7,
+      //padding: EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Flexible(
+                child: TextField(
+                  decoration: InputDecoration(
+                    labelText: '닉네임 또는 아이디를 입력하세요',
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    /// 팝업 닫기 버튼
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          '닫기',
-                        ),
-                        color: ThemeInfo().getThemeColor(),
-                        textColor: ThemeInfo().getThemeTextColor(),
-                      ),
-                    ),
-
-                    /// 참여자 추가 버튼
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FlatButton(
-                        onPressed: () {
-                          //TODO 참여자 추가 버튼 기능 작성
-                          print('팝업 버튼 탭');
-                        },
-                        child: Text(
-                          '추가',
-                        ),
-                        color: ThemeInfo().getThemeColor(),
-                        textColor: ThemeInfo().getThemeTextColor(),
-                      ),
-                    ),
-                  ],
-                )
+              ),
+              IconButton(
+                onPressed: () {
+                  print('Pressed Search Button');
+                },
+                icon: Icon(
+                  Icons.search
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.all(5.0),
+              children: <Widget>[
+                Container(
+                  child: Text('검색 결과 1'),
+                  height: 100,
+                  color: Colors.grey,
+                  margin: EdgeInsets.all(5.0),
+                ),
+                Container(
+                  child: Text('검색 결과 1'),
+                  height: 100,
+                  color: Colors.grey,
+                  margin: EdgeInsets.all(5.0),
+                ),
+                Container(
+                  child: Text('검색 결과 1'),
+                  height: 100,
+                  color: Colors.grey,
+                  margin: EdgeInsets.all(5.0),
+                ),
+                Container(
+                  child: Text('검색 결과 1'),
+                  height: 100,
+                  color: Colors.grey,
+                  margin: EdgeInsets.all(5.0),
+                ),
+                Container(
+                  child: Text('검색 결과 1'),
+                  height: 100,
+                  color: Colors.grey,
+                  margin: EdgeInsets.all(5.0),
+                ),
               ],
             ),
           ),
-        );
+
+          /// 닫기 / 추가 버튼이 들어가는 위젯
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              /// 팝업 닫기 버튼
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    '닫기',
+                  ),
+                  color: ThemeInfo().getThemeColor(),
+                  textColor: ThemeInfo().getThemeTextColor(),
+                ),
+              ),
+
+              /// 참여자 추가 버튼
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FlatButton(
+                  onPressed: () {
+                    //TODO 참여자 추가 버튼 기능 작성
+                    print('팝업 버튼 탭');
+                  },
+                  child: Text(
+                    '추가',
+                  ),
+                  color: ThemeInfo().getThemeColor(),
+                  textColor: ThemeInfo().getThemeTextColor(),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    ),
+  );
+}
+
+/// 친구 목록에서 참여자를 선택하여 추가하기 위한 팝업창 위젯입니다.
+/// parameter [String]
+/// return [Widget]
+Widget showAddFriendDialog(BuildContext context) {
+  return AlertDialog(
+    content: Container(
+      height: MediaQuery.of(context).size.height * 0.6,
+      width: MediaQuery.of(context).size.width * 0.7,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  color: Colors.grey,
+                  height: 100,
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  color: Colors.grey,
+                  height: 100,
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  color: Colors.grey,
+                  height: 100,
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  color: Colors.grey,
+                  height: 100,
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  color: Colors.grey,
+                  height: 100,
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  color: Colors.grey,
+                  height: 100,
+                ),
+              ],
+            ),
+          ),
+
+          /// 닫기 / 추가 버튼이 들어가는 위젯
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              /// 팝업 닫기 버튼
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    '닫기',
+                  ),
+                  color: ThemeInfo().getThemeColor(),
+                  textColor: ThemeInfo().getThemeTextColor(),
+                ),
+              ),
+
+              /// 참여자 추가 버튼
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FlatButton(
+                  onPressed: () {
+                    //TODO 참여자 추가 버튼 기능 작성
+                    print('팝업 버튼 탭');
+                  },
+                  child: Text(
+                    '추가',
+                  ),
+                  color: ThemeInfo().getThemeColor(),
+                  textColor: ThemeInfo().getThemeTextColor(),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    ),
+  );
 }
