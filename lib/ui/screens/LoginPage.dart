@@ -4,6 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:when_are_we_gonna_meet/ui/screens/MainPage.dart';
 import 'package:when_are_we_gonna_meet/ui/widgets/MiniCircleIconButton.dart';
 
+/// LoginPage.dart
+/// 로그인 화면을 표시하기 위한 위젯 클래스입니다.
+/// ## Author: jhkim
+/// ## Date: 2020.02.17
 class LoginPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new LoginPageState();
