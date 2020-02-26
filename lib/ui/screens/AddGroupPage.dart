@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
+import 'package:when_are_we_gonna_meet/ui/widgets/UserListTile.dart';
 
 /// # AddGroupPage.dart
 /// 그룹 생성 화면을 위한 위젯 클래스입니다.
 ///
 /// ## Author jhkim
-/// Date 2020.02.23
+/// ## Date 2020.02.23
 class AddGroupPage extends StatefulWidget {
   @override
   _AddGroupPageState createState() => _AddGroupPageState();
@@ -62,7 +63,7 @@ class _AddGroupPageState extends State<AddGroupPage>
                       color: ThemeInfo().getThemeColor(),
                       textColor: ThemeInfo().getThemeTextColor(),
                       child: Text(
-                        '검색으로',
+                        '검색',
                         style: TextStyle(
                           fontSize: 20.0,
                         ),
@@ -84,7 +85,7 @@ class _AddGroupPageState extends State<AddGroupPage>
                       color: ThemeInfo().getThemeColor(),
                       textColor: ThemeInfo().getThemeTextColor(),
                       child: Text(
-                        '친구목록에서',
+                        '친구 목록',
                         style: TextStyle(
                           fontSize: 20.0,
                         ),
@@ -100,6 +101,59 @@ class _AddGroupPageState extends State<AddGroupPage>
                     ),
                   ),
                 ],
+              ),
+
+              /// 추가한 친구 목록
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: 30.0,
+                        bottom: 10.0,
+                      ),
+                      child: Text(
+                        '추가한 사용자',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView(
+                        padding: EdgeInsets.all(8.0),
+                        children: <Widget>[
+                          UserListTile(),
+                          UserListTile(),
+                          UserListTile(),
+                          UserListTile(),
+                          UserListTile(),
+                          UserListTile(),
+                          UserListTile(),
+                          UserListTile(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: RaisedButton(
+                    onPressed: () {},
+                    color: ThemeInfo().getThemeColor(),
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      '그룹 생성',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: ThemeInfo().getThemeTextColor(),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -134,9 +188,7 @@ Widget showSearchUserDialog(BuildContext context, String text) {
                 onPressed: () {
                   print('Pressed Search Button');
                 },
-                icon: Icon(
-                  Icons.search
-                ),
+                icon: Icon(Icons.search),
               ),
             ],
           ),
@@ -144,36 +196,15 @@ Widget showSearchUserDialog(BuildContext context, String text) {
             child: ListView(
               padding: EdgeInsets.all(5.0),
               children: <Widget>[
-                Container(
-                  child: Text('검색 결과 1'),
-                  height: 100,
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(5.0),
-                ),
-                Container(
-                  child: Text('검색 결과 1'),
-                  height: 100,
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(5.0),
-                ),
-                Container(
-                  child: Text('검색 결과 1'),
-                  height: 100,
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(5.0),
-                ),
-                Container(
-                  child: Text('검색 결과 1'),
-                  height: 100,
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(5.0),
-                ),
-                Container(
-                  child: Text('검색 결과 1'),
-                  height: 100,
-                  color: Colors.grey,
-                  margin: EdgeInsets.all(5.0),
-                ),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
               ],
             ),
           ),
@@ -233,36 +264,15 @@ Widget showAddFriendDialog(BuildContext context) {
           Expanded(
             child: ListView(
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  color: Colors.grey,
-                  height: 100,
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  color: Colors.grey,
-                  height: 100,
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  color: Colors.grey,
-                  height: 100,
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  color: Colors.grey,
-                  height: 100,
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  color: Colors.grey,
-                  height: 100,
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  color: Colors.grey,
-                  height: 100,
-                ),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
+                UserListTile(),
               ],
             ),
           ),

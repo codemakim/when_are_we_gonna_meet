@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
+import 'package:when_are_we_gonna_meet/ui/widgets/UserListTile.dart';
 
 /// # GroupDetailPage.dart
 /// 그룹의 상세 정보를 표시하기 위한 화면입니다.
@@ -39,52 +40,13 @@ class GroupDetailPage extends StatelessWidget {
                   child: ListView(
                     padding: EdgeInsets.all(8.0),
                     children: <Widget>[
-
-                      /// 친구 목록 아이템
-                      Card(
-                        child: ListTile(
-                          title: Text('친구명 1'),
-                          leading: Container(
-                            width: 42.0,
-                            height: 42.0,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: ThemeInfo().getThemeColor(),
-                            ),
-                            child: Text(
-                              '친',
-                              style: TextStyle(
-                                color: ThemeInfo().getThemeTextColor(),
-                                fontSize: 20.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      /// 친구 목록 아이템
-                      Card(
-                        child: ListTile(
-                          title: Text('친구명 1'),
-                          leading: Container(
-                            width: 42.0,
-                            height: 42.0,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: ThemeInfo().getThemeColor(),
-                            ),
-                            child: Text(
-                              '친',
-                              style: TextStyle(
-                                color: ThemeInfo().getThemeTextColor(),
-                                fontSize: 20.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      UserListTile(),
+                      UserListTile(),
+                      UserListTile(),
+                      UserListTile(),
+                      UserListTile(),
+                      UserListTile(),
+                      UserListTile(),
                     ],
                   ),
                 ),
