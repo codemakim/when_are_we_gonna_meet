@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
 
 /// # UserListTile.dart
-/// 친구 목록 아이템
+/// 친구 목록 아이템 위젯
 ///
 /// ## Author jhkim
 /// ## Date 2020.02.25
