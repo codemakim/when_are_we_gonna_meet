@@ -19,8 +19,15 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           '언제 만나?',
-          style: TextStyle(color: ThemeInfo().getThemeTextColor()),
+          style: TextStyle(
+            color: ThemeInfo().getThemeColor(),
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        iconTheme: IconThemeData(
+          color: ThemeInfo().getThemeColor(),
+        ),
+        backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
             tooltip: '그룹 추가 화면으로 이동',
@@ -38,9 +45,11 @@ class MainPage extends StatelessWidget {
           IconButton(
             tooltip: '친구 목록 화면으로 이동',
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => FriendListPage(),
-              ));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FriendListPage(),
+                  ));
             },
             icon: Icon(Icons.list),
           ),
