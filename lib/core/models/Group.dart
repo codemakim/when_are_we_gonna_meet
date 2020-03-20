@@ -7,24 +7,31 @@ class Group {
   final String title;
   final DateTime createDate;
   final User user;
+  final List<User> userList;
 
   Group({
     String id,
     this.title,
     DateTime createDate,
     User user,
+    List<User> userList
   })  : this.id = id ?? '',
         this.createDate = createDate ?? DateTime.now(),
-        this.user = user ?? new User();
+        this.user = user ?? new User(),
+        this.userList = userList ?? null;
 
   Group.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         title = json['title'],
         createDate = json['createDate'],
-        user = json['user'];
+        user = json['user'],
+        userList = json['userList'];
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-      };
+    'id': id,
+    'title': title,
+    'createDate': createDate,
+    'user': user,
+    'userList': userList
+  };
 }
