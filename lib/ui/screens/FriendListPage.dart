@@ -16,13 +16,13 @@ class FriendListPage extends StatelessWidget {
           '친구 목록',
           style: TextStyle(
             color: ThemeInfo().getThemeColor(),
-            fontWeight: FontWeight.bold,
           ),
         ),
         iconTheme: IconThemeData(
           color: ThemeInfo().getThemeColor(),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Column(
         children: <Widget>[

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/ScheduleDetailPage.dart';
 
 /// # ScheduleListTile.dart
 /// 일정 목록 아이템 위젯
@@ -18,7 +19,12 @@ class ScheduleListTile extends StatelessWidget {
           '6/12 명',
         ),
         onTap: () {
-          print('일정 아이템 탭');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ScheduleDetailPage(),
+            ),
+          );
         },
       ),
     );

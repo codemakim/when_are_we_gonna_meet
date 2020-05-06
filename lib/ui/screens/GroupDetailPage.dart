@@ -17,13 +17,13 @@ class GroupDetailPage extends StatelessWidget {
           '그룹 이름',
           style: TextStyle(
             color: ThemeInfo().getThemeColor(),
-            fontWeight: FontWeight.bold,
           ),
         ),
         iconTheme: IconThemeData(
           color: ThemeInfo().getThemeColor(),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         actions: <Widget>[
           /// 일정 목록 화면
           IconButton(

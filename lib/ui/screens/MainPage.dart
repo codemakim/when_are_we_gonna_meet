@@ -21,16 +21,16 @@ class MainPage extends StatelessWidget {
           '언제 만나?',
           style: TextStyle(
             color: ThemeInfo().getThemeColor(),
-            fontWeight: FontWeight.bold,
           ),
         ),
         iconTheme: IconThemeData(
           color: ThemeInfo().getThemeColor(),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         actions: <Widget>[
           IconButton(
-            tooltip: '그룹 추가 화면으로 이동',
+            tooltip: ' 화면으로 이동',
             onPressed: () {
               Navigator.push(
                   context,

@@ -31,7 +31,15 @@ class _AddGroupPageState extends State<AddGroupPage>
       appBar: AppBar(
         title: Text(
           '그룹 추가',
+          style: TextStyle(
+            color: ThemeInfo().getThemeColor(),
+          ),
         ),
+        iconTheme: IconThemeData(
+          color: ThemeInfo().getThemeColor(),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Container(
         padding: EdgeInsets.all(8.0),
@@ -58,46 +66,58 @@ class _AddGroupPageState extends State<AddGroupPage>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
-                    child: FlatButton(
-                      padding: EdgeInsets.all(8.0),
-                      color: ThemeInfo().getThemeColor(),
-                      textColor: ThemeInfo().getThemeTextColor(),
-                      child: Text(
-                        '검색',
-                        style: TextStyle(
-                          fontSize: 20.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RaisedButton(
+                        padding: EdgeInsets.all(8.0),
+                        color: ThemeInfo().getThemeColor(),
+                        textColor: ThemeInfo().getThemeTextColor(),
+                        child: Text(
+                          '검색',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
                         ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return showSearchUserDialog(
+                                  context, _searchUserTextController.text);
+                            },
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return showSearchUserDialog(
-                                context, _searchUserTextController.text);
-                          },
-                        );
-                      },
                     ),
                   ),
                   Expanded(
-                    child: FlatButton(
-                      padding: EdgeInsets.all(8.0),
-                      color: ThemeInfo().getThemeColor(),
-                      textColor: ThemeInfo().getThemeTextColor(),
-                      child: Text(
-                        '친구 목록',
-                        style: TextStyle(
-                          fontSize: 20.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RaisedButton(
+                        padding: EdgeInsets.all(8.0),
+                        color: ThemeInfo().getThemeColor(),
+                        textColor: ThemeInfo().getThemeTextColor(),
+                        child: Text(
+                          '친구 목록',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
                         ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)
+                        ),
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return showAddFriendDialog(context);
+                            },
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return showAddFriendDialog(context);
-                          },
-                        );
-                      },
                     ),
                   ),
                 ],
@@ -151,6 +171,9 @@ class _AddGroupPageState extends State<AddGroupPage>
                         fontSize: 20.0,
                         color: ThemeInfo().getThemeTextColor(),
                       ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0)
                     ),
                   ),
                 ),

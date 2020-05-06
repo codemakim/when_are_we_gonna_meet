@@ -12,7 +12,7 @@ class ScheduleDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '일정 목록 제목',
+          '일정 제목',
           style: TextStyle(
             color: ThemeInfo().getThemeColor()
           ),
@@ -20,6 +20,8 @@ class ScheduleDetailPage extends StatelessWidget {
         iconTheme: IconThemeData(
           color: ThemeInfo().getThemeColor()
         ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Column(
         children: <Widget>[
