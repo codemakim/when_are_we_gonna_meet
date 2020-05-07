@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/AddGroupPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/GroupAddPage.dart';
 import 'package:when_are_we_gonna_meet/ui/screens/FriendListPage.dart';
 import 'package:when_are_we_gonna_meet/ui/screens/GroupDetailPage.dart';
 

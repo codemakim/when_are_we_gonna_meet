@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/JoinFriendListPage.dart';
 import 'package:when_are_we_gonna_meet/ui/widgets/ScheduleListTile.dart';
-import 'package:when_are_we_gonna_meet/ui/widgets/UserListTile.dart';
 
 /// # GroupDetailPage.dart
 /// 그룹의 상세 정보를 표시하기 위한 화면입니다.
@@ -14,7 +14,7 @@ class GroupDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '그룹 이름',
+          '임의로 때려넣은 그룹임~',
           style: TextStyle(
             color: ThemeInfo().getThemeColor(),
           ),
@@ -36,15 +36,20 @@ class GroupDetailPage extends StatelessWidget {
             icon: Icon(Icons.people_outline),
             iconSize: 30.0,
             color: ThemeInfo().getThemeColor(),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => JoinFriendListPage())
+              );
+            },
           ),
         ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          /// 해당 그룹에 참가한 인원 목록을 표시하기 위한 위넷입니다.
-          Container(
+          /// 해당 그룹에 참가한 인원 목록을 표시하기 위한 위젯입니다.
+          /*Container(
             height: MediaQuery.of(context).size.height * 0.37,
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -73,7 +78,7 @@ class GroupDetailPage extends StatelessWidget {
                 ),
               ],
             ),
-          ),
+          ),*/
 
           /// 그룹의 일정 목록을 표시하기 위한 위젯입니다.
           Expanded(
@@ -88,13 +93,20 @@ class GroupDetailPage extends StatelessWidget {
                         EdgeInsets.only(top: 20.0, bottom: 8.0, left: 15.0),
                     child: Text(
                       '일정 목록',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Expanded(
                     child: ListView(
                       padding: EdgeInsets.all(8.0),
                       children: <Widget>[
+                        ScheduleListTile(),
+                        ScheduleListTile(),
+                        ScheduleListTile(),
+                        ScheduleListTile(),
                         ScheduleListTile(),
                         ScheduleListTile(),
                         ScheduleListTile(),

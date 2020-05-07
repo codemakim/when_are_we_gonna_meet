@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
 import 'package:when_are_we_gonna_meet/ui/widgets/UserListTile.dart';
 
-/// # AddGroupPage.dart
+/// # GroupAddPage.dart
 /// 그룹 생성 화면을 위한 위젯 클래스입니다.
 ///
 /// ## Author jhkim
