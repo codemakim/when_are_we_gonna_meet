@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/GroupAddPage.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/FriendListPage.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/GroupDetailPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/group/GroupAddPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/user/FriendListPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/group/GroupDetailPage.dart';
+import 'package:when_are_we_gonna_meet/ui/widgets/ScheduleListTile.dart';
 
 /// # MainPage.dart
-/// 메인페이지를 출력하기 위한 위젯 클래스입니다. 메인 페이지는 그룹 목록 표시,
-/// 그룹 생성 페이지, 친구 목록 페이지 이동 버튼이 표시되는 화면입니다.
+/// 메인페이지를 출력하기 위한 위젯 클래스입니다. 메인 페이지는 일정 목록 표시,
+/// 일정 생성 페이지, 친구 목록 페이지 이동 버튼이 표시되는 화면입니다.
 ///
 /// ## Author: jhkim
 /// ## Date: 2020.02.17
+/// ## Update : 2020.05.13
 class MainPage extends StatelessWidget {
   final int flag = 2;
 
@@ -51,11 +53,11 @@ class MainPage extends StatelessWidget {
                     builder: (context) => FriendListPage(),
                   ));
             },
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.people),
           ),
         ],
       ),
-      body: flag == 0 ? emptyGroup(context) : haveGroup(context),
+      body: flag == 0 ? emptySchedule(context) : haveSchedule(context),
     );
   }
 }
@@ -64,7 +66,7 @@ class MainPage extends StatelessWidget {
 ///
 /// parameter [BuildContext] context
 /// return [Widget]
-Widget emptyGroup(BuildContext context) {
+Widget emptySchedule(BuildContext context) {
   return Center(
     child: Padding(
       padding: EdgeInsets.symmetric(
@@ -107,36 +109,17 @@ Widget emptyGroup(BuildContext context) {
 ///
 /// parameter [BuildContext] context
 /// return [Widget]
-Widget haveGroup(BuildContext context) {
+Widget haveSchedule(BuildContext context) {
   return ListView(
     padding: EdgeInsets.all(8.0),
     children: <Widget>[
-      ListTile(
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => GroupDetailPage(),
-              ));
-          print('Pressed Item of ListView 0');
-        },
-        title: Text('Item of ListView 0'),
-        trailing: Icon(Icons.arrow_forward),
-      ),
-      ListTile(
-        onTap: () {
-          print('Pressed Item of ListView 1');
-        },
-        title: Text('Item of ListView 1'),
-        trailing: Icon(Icons.arrow_forward),
-      ),
-      ListTile(
-        onTap: () {
-          print('Pressed Item of ListView 2');
-        },
-        title: Text('Item of ListView 2'),
-        trailing: Icon(Icons.arrow_forward),
-      ),
+      ScheduleListTile(),
+      ScheduleListTile(),
+      ScheduleListTile(),
+      ScheduleListTile(),
+      ScheduleListTile(),
+      ScheduleListTile(),
+      ScheduleListTile(),
     ],
   );
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/common/ThemeInfo.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/JoinFriendListPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/user/FriendJoinListPage.dart';
 import 'package:when_are_we_gonna_meet/ui/widgets/ScheduleListTile.dart';
 
 /// # GroupDetailPage.dart
@@ -39,7 +39,7 @@ class GroupDetailPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => JoinFriendListPage())
+                MaterialPageRoute(builder: (context) => FriendJoinListPage())
               );
             },
           ),

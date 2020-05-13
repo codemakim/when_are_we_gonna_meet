@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:when_are_we_gonna_meet/ui/widgets/UserListTile.dart';
 
-class JoinFriendListPage extends StatelessWidget {
+class FriendJoinListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

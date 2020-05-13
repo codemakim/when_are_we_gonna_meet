@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:when_are_we_gonna_meet/ui/screens/ScheduleDetailPage.dart';
+import 'package:when_are_we_gonna_meet/ui/screens/schedule/ScheduleDetailPage.dart';
 
 /// # ScheduleListTile.dart
 /// 일정 목록 아이템 위젯
